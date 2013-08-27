@@ -14,9 +14,10 @@
                 {
                     "name": "Apple",
                     "devices": [
-                        { "name": "iPhone",   "w": 320, "h": 480,  "inch": "3.5" },
-                        { "name": "iPhone 4", "w": 640, "h": 960,  "inch": "3.5" },
-                        { "name": "iPhone 5", "w": 640, "h": 1136, "inch": "4.0" }
+                        { "name": "iPhone 1-4S",   "w": 320, "h": 480,  "inch": "3.5" },
+                        { "name": "iPhone 1-4S +15",   "w": 335, "h": 480,  "inch": "3.5" },
+                        { "name": "iPhone 5", "w": 320, "h": 568, "inch": "4.0" },
+                        { "name": "iPhone 5 +15", "w": 335, "h": 568, "inch": "4.0" }
                     ]
                 },
                 {
@@ -32,9 +33,9 @@
                 {
                     "name": "Samsung",
                     "devices": [
-                        { "name": "Samsung S2",    "w": 480,  "h": 800,  "inch": "4.5" },
-                        { "name": "Samsung S3",    "w": 720,  "h": 1280, "inch": "4.8" },
-                        { "name": "Samsung S4",    "w": 1080, "h": 1920, "inch": "5" }
+                        { "name": "Samsung S2",    "w": 320,  "h": 533,  "inch": "4.5" },
+                        { "name": "Samsung S3",    "w": 360,  "h": 640, "inch": "4.8" },
+                        { "name": "Samsung S4",    "w": 360, "h": 640, "inch": "5" }
                     ]
                 },
                 {
