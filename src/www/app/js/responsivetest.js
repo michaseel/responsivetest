@@ -37,7 +37,7 @@ angular
                     }
                     template += '<li class="dropdown-header" ng-mouseover="toggleBrand(' + i + ')">' + brands[i].name + '</li>';
                     for (var j in brands[i].devices) {
-                        template += '<li ng-show="openStatus[' + i + ']"><a href="javascript: void(0);" ng-click="$parent.resizeTo(' + brands[i].devices[j].w + ', ' + brands[i].devices[j].h + ')">' + brands[i].devices[j].name;
+                        template += '<li ng-show="openStatus[' + i + ']"><a href="javascript: void(0);" ng-click="$parent.resizeTo(' + brands[i].devices[j].w + ', ' + brands[i].devices[j].h  + ', ' + brands[i].devices[j].pxd + ')">' + brands[i].devices[j].name;
 
                         if (brands[i].devices[j].inch) {
                             template += ' <small></small><span>' + brands[i].devices[j].inch + '"</span>';
@@ -60,8 +60,8 @@ angular
                 var parent = $scope.$parent;
                 $element.resizable({
                     resize: function(event, ui) {
-                        $scope.w = ui.size.width;
-                        $scope.h = ui.size.height;
+                        $scope.w = ui.size.width * $scope.pxd;
+                        $scope.h = ui.size.height * $scope.pxd;
                         parent.$apply();
                     }
                 });
@@ -101,6 +101,7 @@ angular
         $scope.loading  = true;
         $scope.w        = 1024;
         $scope.h        = 768;
+        $scope.pxd      = 1;
         $scope.url      = null;
         $scope.frameSrc = null;
 
@@ -121,6 +122,7 @@ angular
                         $scope.url = array[0];
                         $scope.w   = array[1];
                         $scope.h   = array[2];
+                        $scope.pxd = array[3];
                     }
                 } else {
                     // Get the random URL
@@ -154,9 +156,10 @@ angular
          * @param {int} width
          * @param {int} height
          */
-        $scope.resizeTo = function(width, height) {
+        $scope.resizeTo = function(width, height, pxd) {
             $scope.w = width;
             $scope.h = height;
+            $scope.pxd = pxd;
         };
 
         /**
@@ -201,7 +204,7 @@ angular
         $scope.updateHash = function() {
             if ($scope.w && $scope.h && $scope.url) {
                 // Update the location hash
-                window.location.hash = '#u=' + [$scope.url, $scope.w, $scope.h].join('|');
+                window.location.hash = '#u=' + [$scope.url, $scope.w, $scope.h, $scope.pxd].join('|');
             }
         };
     });
